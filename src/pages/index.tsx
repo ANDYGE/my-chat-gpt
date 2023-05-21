@@ -3,7 +3,7 @@ import Dialog from "../components/dialog";
 import Thinking from "~/components/thinking";
 import { api } from '~/utils/api';
 
-export default () => {
+const Index = () => {
 
   const scrollIntoView = useCallback(() => setTimeout(() => container.current.scrollIntoView(false), 20), []);
   const container = useRef<HTMLDivElement>({} as HTMLDivElement);
@@ -15,7 +15,7 @@ export default () => {
 
   const { mutate, isLoading } = api.chatgpt.chat.useMutation({
     onSuccess(content) {
-      setMessages(messages => [...messages, { role: 'assistant', content }]);
+      setMessages(messages => [...messages, { role: 'assistant', content: content ?? 'sorry...' }]);
       scrollIntoView();
     }
   });
@@ -58,3 +58,5 @@ export default () => {
     </div>
   );
 };
+
+export default Index;

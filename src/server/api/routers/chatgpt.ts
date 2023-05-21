@@ -17,6 +17,6 @@ export const chatgptRouter = createTRPCRouter({
         model: 'gpt-3.5-turbo',
         messages: input
       });
-      return completion.data.choices[0]!.message!.content;
+      return completion.data.choices[0]?.message?.content;
     }),
 });
