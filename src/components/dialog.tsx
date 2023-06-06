@@ -7,7 +7,7 @@ const Dialog = ({ message: { role, content } }: { message: Message; }) => {
         <div className={`chat ${isMe ? 'chat-end' : 'chat-start'}`}>
             <div className="chat-image avatar">
                 <div className="w-10 rounded-full">
-                    <Image alt='avatar' src={`/${isMe ? 'me' : 'gpt'}.png`} />
+                    <Image width="40" height="40" alt='avatar' src={`/${isMe ? 'me' : 'gpt'}.png`} />
                 </div>
             </div>
             <div className="chat-bubble">{content}</div>

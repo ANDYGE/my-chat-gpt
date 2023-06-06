@@ -14,7 +14,7 @@ export const chatgptRouter = createTRPCRouter({
     .input(z.array(z.object({ role: z.enum(['user', 'assistant']), content: z.string() })))
     .mutation(async ({ input }) => {
       const completion = await openai.createChatCompletion({
-        model: 'gpt-4',
+        model: 'gpt-3.5-turbo',
         messages: input
       });
       return completion.data.choices[0]?.message?.content;
